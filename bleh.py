@@ -4,6 +4,8 @@
 from operator import itemgetter
 import sys
 
+bad_chars = ['-', '_', '(', ')', '[', ']', '{', '}', ':', ';', '"', "'", '<', '>', ',', '.', '?', '/', '\\', '|', '!', '@', '#', '$', '%', '^', '&', '*', '~', '`', '+', '=', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+
 def map_words(input_file):
     # file = open(input_file, 'r')
 
@@ -15,6 +17,8 @@ def map_words(input_file):
         line = line.strip()
         words = line.split()
         for word in words:
+            for char in bad_chars:
+                word = word.replace(char, '')
             yield (word, 1)
 
 def reduce_words(word_pairs):
