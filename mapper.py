@@ -2,7 +2,8 @@
 # -*-coding:utf-8 -*
 import sys 
   
-for line in sys.stdin: 
+for line in sys.stdin:
+    line = line.lower()
     line = line.strip() 
     words = line.split() 
     for word in words:
